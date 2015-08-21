@@ -1,8 +1,6 @@
 #ifndef _insertion_sort_h_
 #define _insertion_sort_h_
 
-#include "print_ints.h"
-
 void sort_insertion( int *nums, int length )
 {
     // Perform insertion sort and print array after

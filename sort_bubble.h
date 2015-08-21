@@ -28,6 +28,7 @@ void sort_bubble( int *nums, int length )
         }
         j--;
     }
+    printf("\n");
 }
 
 #endif

@@ -8,10 +8,10 @@ void print_ints( int *nums, int length, int partition_a,
                                         int partition_b );
 
 #include "sort_insertion.h"
-//#include "sort_selection.h"
+#include "sort_selection.h"
 #include "sort_bubble.h"
-//#include "sort_merge.h"
-//#include "sort_quick.h"
+#include "sort_merge.h"
+#include "sort_quick.h"
 
 void demo_sort( void (*function)(int*,int), int *nums, int length )
 {
@@ -61,10 +61,10 @@ int main( int argc, char *argv[] )
     // Demonstrate each sort inside demo_sort wrapper
     printf("\n");
     demo_sort( sort_insertion, nums, argc-1 );
-    // demo_sort( sort_selection, nums, argc-1 );
+    demo_sort( sort_selection, nums, argc-1 );
     demo_sort( sort_bubble, nums, argc-1 );
-    // demo_sort( sort_merge, nums, argc-1 );
-    // demo_sort( sort_quick, nums, argc-1 );
+    demo_sort( sort_merge, nums, argc-1 );
+    demo_sort( sort_quick, nums, argc-1 );
 
     return 0;
 }

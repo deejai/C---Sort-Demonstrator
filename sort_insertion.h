@@ -7,25 +7,26 @@ void sort_insertion( int *nums, int length )
     // every new insertion
 
     printf("   INSERTION avg: O(n^2)\n");
-    print_ints( nums, length, 0, 0 );
 
     int i, j, temp;
     for( i=1; i<length; i++ ){
+
+        print_ints( nums, length, i );
+        printf("\n");
 
         temp = nums[i];
         j = i;
 
         while( (nums[j-1] > temp) ){
             nums[j] = nums[j-1];
-            
+
             j--;
             if( j<=0 ) break;
         }
         nums[j] = temp;
-
-        print_ints( nums, length, i, i );
     }
-    printf("\n");
+    print_ints( nums, length, length );
+    printf("\n\n");
 }
 
 #endif

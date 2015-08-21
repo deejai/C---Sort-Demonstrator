@@ -7,7 +7,7 @@ void sort_bubble( int *nums, int length )
     // every swap test
 
     printf("   BUBBLE avg: O(n^2)\n");
-    print_ints( nums, length, 0, 0 );
+    // print_ints( nums, length, 1 );
 
     int temp;
     int i, j=length;
@@ -16,6 +16,9 @@ void sort_bubble( int *nums, int length )
     while( j>0 && did_swap ){
         did_swap = 0;
         for( i=1; i<j; i++ ){
+            print_ints( nums, length, i );
+            printf("\n");
+
             if( nums[i-1]>nums[i] ){
 
                 temp = nums[i];
@@ -24,11 +27,11 @@ void sort_bubble( int *nums, int length )
 
                 did_swap = 1;
             }
-            print_ints( nums, length, i, i );
         }
         j--;
     }
-    printf("\n");
+    print_ints( nums, length, 0 );
+    printf("\n\n");
 }
 
 #endif

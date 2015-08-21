@@ -7,11 +7,11 @@ void sort_quick( int *nums, int length )
     // every swap check
 
     printf("   QUICK avg: O(n logn)\n");
-    print_ints( nums, length, 0, 0 );
+    print_ints( nums, length, 0 );
 
     ;
 
-    printf("\n");
+    printf("\n\n");
 }
 
 #endif

@@ -7,11 +7,11 @@ void sort_merge( int *nums, int length )
     // every separation and merge operation
 
     printf("   MERGE avg: O(n logn)\n");
-    print_ints( nums, length, 0, 0 );
+    print_ints( nums, length, 0 );
 
     ;
 
-    printf("\n");
+    printf("\n\n");
 }
 
 #endif

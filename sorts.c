@@ -3,15 +3,8 @@
 #include <string.h>
 #include <stdarg.h>
 
-// Forward declaration of print function that each sort
-// makes use of
-void print_ints( int *nums, int length, int partition );
-
-#include "sort_insertion.h"
-#include "sort_selection.h"
-#include "sort_bubble.h"
-#include "sort_merge.h"
-#include "sort_quick.h"
+// sorts.h links to each sort to be used
+#include "sorts.h"
 
 void demo_sort( void (*function)(int*,int), int *nums, int length )
 {
@@ -30,25 +23,6 @@ void demo_sort( void (*function)(int*,int), int *nums, int length )
 
     // free copied array
     free( nums_copy );
-}
-
-void print_ints( int *nums, int length, int partition )
-{
-    // Print the given integer array along with a
-    // partition separator
-
-    // For no partition, pass -1 for partition
-
-    printf(" ");
-
-    int i;
-    for( i=0; i<length; i++ ){
-        if( partition==i )
-            printf("| ");
-        printf("%d ", nums[i]);
-    }
-    if( partition==length )
-        printf("| ");
 }
 
 int main( int argc, char *argv[] )

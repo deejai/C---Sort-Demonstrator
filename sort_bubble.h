@@ -1,7 +1,7 @@
 #ifndef _sort_bubble_h_
 #define _sort_bubble_h_
 
-#include "print_ints.h";
+#include "print_ints.h"
 
 void sort_bubble( int *nums, int length )
 {

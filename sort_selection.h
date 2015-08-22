@@ -1,7 +1,7 @@
 #ifndef _sort_selection_h_
 #define _sort_selection_h_
 
-#include "print_ints.h";
+#include "print_ints.h"
 
 void sort_selection( int *nums, int length )
 {

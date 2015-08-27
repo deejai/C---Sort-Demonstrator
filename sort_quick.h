@@ -21,25 +21,25 @@ void recursive_quick( int *nums, int length )
     swap( nums[ length-1 ], nums[ rand()%length ] );
 
     // if current num is <= pivot, swap it with
-    // num at part_index and increment part_index
+    // num at p_index and increment p_index
     int i;
-    int part_index = 0;
+    int p_index = 0;
     for( i=0; i<length; i++ ){
-        if( nums[i] <= nums[part_index] ){
-            swap( &nums[i], &nums[part_index] );
-            part_index++;
+        if( nums[i] <= nums[p_index] ){
+            swap( &nums[i], &nums[p_index] );
+            p_index++;
         }
     }
     // swap pivot into place
-    swap( nums[length-1], nums[part_index] );
+    swap( nums[length-1], nums[p_index] );
 
     // print nums with partition indicators around pivot
-    print_ints( nums, part_index, part_index );
-    print_ints( &nums[part_index], length-part_index, 0 );
+    print_ints( nums, p_index, p_index );
+    print_ints( &nums[p_index], length-p_index, 0 );
     printf("\n");
 
-    recursive_quick( nums, left_length );
-    recursive_quick( pivot+1, right_length );
+    recursive_quick( nums, p_index );
+    recursive_quick( &nums[ p_index+1 ], length - (p_index+1) );
 }
 
 void sort_quick( int *nums, int length )

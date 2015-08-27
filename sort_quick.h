@@ -18,24 +18,31 @@ void recursive_quick( int *nums, int length )
 
     // choose random pivot by swapping an int from a
     // random position into the rightmost slot
-    swap( nums[ length-1 ], nums[ rand()%length ] );
+    swap( &nums[ length-1 ], &nums[ rand()%length ] );
+
+    // print nums with partition indicator before pivot
+    printf("choose pivot: ");
+    print_ints( nums, length, length-1 );
+    printf("\n");
 
     // if current num is <= pivot, swap it with
     // num at p_index and increment p_index
     int i;
     int p_index = 0;
     for( i=0; i<length; i++ ){
-        if( nums[i] <= nums[p_index] ){
+        if( nums[i] <= nums[length-1] ){
             swap( &nums[i], &nums[p_index] );
             p_index++;
         }
     }
     // swap pivot into place
-    swap( nums[length-1], nums[p_index] );
+    swap( &nums[length-1], &nums[p_index] );
 
     // print nums with partition indicators around pivot
-    print_ints( nums, p_index, p_index );
-    print_ints( &nums[p_index], length-p_index, 0 );
+    printf("...partition: ");
+    print_ints( nums, p_index, p_index-1 );
+    printf("|"); // part without trailing space
+    print_ints( &nums[p_index], length-p_index, -1 );
     printf("\n");
 
     recursive_quick( nums, p_index );
@@ -47,10 +54,16 @@ void sort_quick( int *nums, int length )
     // Perform quick sort and print array after
     // every swap check
 
+    srand(time(NULL));
+
+    // Header
     printf("   QUICK avg: O(n logn)\n");
-    print_ints( nums, length, 0 );
+    print_ints( nums, length, -1 );
+    printf("\n");
 
     recursive_quick( nums, length );
+
+    print_ints( nums, length, -1 );
 
     printf("\n\n");
 }

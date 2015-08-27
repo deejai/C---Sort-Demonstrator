@@ -18,7 +18,8 @@ void recursive_quick( int *nums, int length )
 
     // choose random pivot by swapping an int from a
     // random position into the rightmost slot
-    swap( &nums[ length-1 ], &nums[ rand()%length ] );
+    int pivot = rand() % length;
+    swap( &nums[ length-1 ], &nums[ pivot ] );
 
     // print nums with partition indicator before pivot
     printf("choose pivot: ");
@@ -29,7 +30,7 @@ void recursive_quick( int *nums, int length )
     // num at p_index and increment p_index
     int i;
     int p_index = 0;
-    for( i=0; i<length; i++ ){
+    for( i=0; i<length-1; i++ ){
         if( nums[i] <= nums[length-1] ){
             swap( &nums[i], &nums[p_index] );
             p_index++;
@@ -46,7 +47,9 @@ void recursive_quick( int *nums, int length )
     printf("\n");
 
     recursive_quick( nums, p_index );
-    recursive_quick( &nums[ p_index+1 ], length - (p_index+1) );
+
+    if( p_index+1 < length )
+        recursive_quick( &nums[p_index+1], length - (p_index+1) );
 }
 
 void sort_quick( int *nums, int length )
@@ -61,9 +64,10 @@ void sort_quick( int *nums, int length )
     print_ints( nums, length, -1 );
     printf("\n");
 
-    recursive_quick( nums, length );
-
-    print_ints( nums, length, -1 );
+    if( length > 1 ){
+        recursive_quick( nums, length );
+        print_ints( nums, length, -1 );
+    }
 
     printf("\n\n");
 }

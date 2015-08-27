@@ -3,8 +3,11 @@
 #include <string.h>
 #include <stdarg.h>
 
-// sorts.h links to each sort to be used
-#include "sorts.h"
+#include "sort_insertion.h"
+#include "sort_selection.h"
+#include "sort_bubble.h"
+#include "sort_merge.h"
+#include "sort_quick.h"
 
 void demo_sort( void (*function)(int*,int), int *nums, int length )
 {
